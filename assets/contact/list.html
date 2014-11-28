@@ -1,0 +1,23 @@
+<h2>Contacts</h2>
+<div ng-controller="ContactDetailController">
+	<table id="subreferer" class="table table-condensed">
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>&nbsp;</th>
+				<th>&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="contact in contacts">
+				<td>{{contact.name}}</td>
+				<td>{{contact.surname}}</td>
+				<td><button class="btn" ng-click="open(contact.id)" >Detail</button></td>
+				<td><button class="btn" ng-click="deleteById(contact.id)" >Delete</button></td>
+				<td><button class="btn" ng-click="edit(contact.id)" >Edit</button></td>
+			</tr>
+		</tbody>
+	</table>
+	<button class="btn btn-primary" ng-click="add()" >Add New Contact</button>
+</div>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Contacts Application</title>
+		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    </head>
+    <body ng-app="ContactsApp">
+        <div class="container">
+            <div ng-view=""></div>
+        </div>
+	 <script type="text/javascript" src ="assets/app/jquery.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.js"></script>
+	<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
+	 <script type="text/javascript" src ="assets/app/jquery.dataTables.js"></script>
+        <script type="text/javascript" src ="assets/app/app.js"></script>
+        <script type="text/javascript" src ="assets/app/controllers.js"></script>
+        <script type="text/javascript" src ="assets/contact/module.js"></script>
+	<script type="text/javascript">
+  /* Table initialisation */
+$(document).ready(function() {
+	$('#subreferer').dataTable( {
+		 "bStateSave": true,
+		  "columnDefs": [
+		{
+		    "targets": [ 1 ],
+		    "visible": false
+		}
+	       ],
+		 "sPaginationType": "bootstrap",
+		
+		"oLanguage": {
+			
+		}
+	} );
+} );
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,41 @@
+
+app.factory('ContactsRepositoryService',['$http',
+	function($http) {
+		return {
+			apiBase : 'api/contacts/',
+			http :$http,
+			
+			getAll : function() {
+				return this.http.get(this.apiBase);
+			},
+			
+			getById : function(contactId) {
+				return this.http.get(this.apiBase+'?id='+contactId);
+			},
+			
+			save : function(contact) {
+				return this.http.post(this.apiBase, contact);
+			},
+			
+			deleteById : function(contactId) {
+				return this.http.get(this.apiBase+'?id='+contactId+'&request_method=DELETE');
+			},
+			
+			update : function(contact) {
+				return this.http.post(this.apiBase+'?id='+contact.id+'&request_method=PUT', contact);
+			}
+		}
+	}
+]);
+
+app.controller('ContactsListController', ['$scope', 'listService', 'contactsRepositoryService',
+	function($scope, listService, contactsRepositoryService) {
+		listService.execute($scope, contactsRepositoryService, 'contact');
+	}
+]);
+
+app.controller('ContactDetailController', ['$scope', 'detailService', 'contactsRepositoryService',
+	function($scope, detailService, contactsRepositoryService) {
+		detailService.execute($scope, contactsRepositoryService, 'contact');
+	}
+]);

@@ -1,0 +1,21 @@
+<div class="modal-header">
+	<h2>Edit Contact</h2>
+</div>	
+<div class="modal-body">
+	<form novalidate name="editForm" id="edit-form" method="post" action="">
+		<input type="hidden" ng-model="contact.id" required />
+		<label for="name">First Name:</label>
+		<input type="text" ng-model="contact.name" required />
+		<label for="surname">Last Name:</label>
+		<input type="text" ng-model="contact.surname" required />
+		<label for="address">Address:</label>
+		<input type="text" ng-model="contact.address" required />
+		<label for="phone">Phone:</label>
+		<input type="text" intl-prefix="true" ng-model="contact.phone" />
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" ng-disabled="editForm.$invalid || isUnchanged(contact)" 
+		id="add-new-btn" ng-click="update(contact)">Save!</button>
+	<button class="btn" ng-click="cancel()">Cancel</button>
+</div>
